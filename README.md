@@ -47,6 +47,9 @@ sudo rm -rf /usr/local/lib/node_modules /usr/local/lib/dtrace/node.d
 brew install node
 ```
 
+Now check it  
+<img width="450" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/e81055cd-d40a-4bd6-afd7-4e7f7f901400">
+
 Later when you want to uninstall node, you can simply do this
 ```bash
 brew uninstall node
