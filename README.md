@@ -21,13 +21,14 @@ Find the node (below command shows you the location of the file for a given comm
 ```bash
 which node
 ```
-<img width="350" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/d91e2ed4-40ca-4459-b9a2-bb14911856ae">
+<img width="450" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/d91e2ed4-40ca-4459-b9a2-bb14911856ae">
 
 Now remove that
 ```
 sudo rm -rf /usr/local/bin/node
 ```
 
+Also remove these files and folders
 ```bash
 sudo rm -rf ~/.npm ~/.npm-global ~/.node-gyp ~/.npmrc ~/.node_repl_history
 
@@ -46,7 +47,7 @@ sudo rm -rf /usr/local/lib/node_modules /usr/local/lib/dtrace/node.d
 brew install node
 ```
 
-Later when you want to uninstall node, you can simple do this
+Later when you want to uninstall node, you can simply do this
 ```bash
 brew uninstall node
 ```
