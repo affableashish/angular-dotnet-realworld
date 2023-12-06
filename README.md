@@ -53,11 +53,13 @@ Make your terminal pick up the nvm command that was set by the installation in y
 ```bash
 . ~/.bash_profile
 ```
+This is called sourcing and it executes commands from the file (`.bash_profile` here) in the current shell environment. This will pick up the changes to your profile without having to close and reopen the terminal.
 
-Now check your `nvm` version  
+Now check your `nvm` version
+
 <img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/8ab6cd22-8492-49f0-95b5-8d355ff2aa8d">
 
-Later when you want to **uninstall** `nvm` do these
+Later when you want to **uninstall** `nvm` do the following
 ```bash
 $ rm -rf "$NVM_DIR"
 ```
@@ -82,18 +84,22 @@ nvm install --lts
 Now check it  
 <img width="450" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/3fd706e0-16c8-4954-a49c-9a1b52ffb9be">
 
+[Reference](https://heynode.com/tutorial/install-nodejs-locally-nvm/)
+
 # Setup Angular CLI
-Choose either way shown below.
+[Reference](https://angular.dev/tools/cli/setup-local)
 
-Installs the Angular CLI package locally in the current directory.
-```bash
-npx --package @angular/cli
-```
+Choose either way (1 or 2) shown below.
 
-Installs the Angular CLI package globally on the computer.
-```bash
-npm install -g @angular/cli
-```
+1. Installs the Angular CLI package locally in the current directory.
+   ```bash
+   npx --package @angular/cli
+   ```
+
+2. Installs the Angular CLI package globally on the computer.
+   ```bash
+   npm install -g @angular/cli
+   ```
 
 Later when you want to **uninstall** Angular CLI, you can simply do this
 ```bash
@@ -111,6 +117,64 @@ If it asks you to allow angular cli to autocomplete commands, choose Y which wil
 
 <img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/70f6a3d1-79fb-4cf8-a529-780421099368">
 
+# Setting up your IDE
+I'm using Jetbrains Rider. It already comes with the features present in WebStorm so I don't have to use a separate IDE for doing full stack work.
+
+<img width="650" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/f99a9814-0ef9-4f9e-aa39-68be1aeebb7a">
+
+[Reference](https://www.jetbrains.com/rider/features/)
+
+## Settings in your Jetbrains IDE Rider
+1. Show memory
+   
+   <img width="650" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/a3d99d4b-542c-4860-a460-f30b81fd3c9f">
+
+   The memory shows up in the bottom right corner. You can force GC to kick in when your IDE starts getting slow.
+
+   <img width="200" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/cb655f07-317e-441a-88c1-8c2f820ee019">
+
+## Plugins in your Jetbrains IDE Rider
+### Preetier
+[Reference](https://prettier.io/docs/en/webstorm)
+
+Standard for working with JS TS projects.
+
+It already comes bundled with it
+
+<img width="450" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/27ea62a8-3286-4a08-9280-5c20383edd70">
+
+To use it, you have to install it as a dev dependency on your project
+ 
+```bash
+npm install --save-dev --save-exact prettier
+```
+
+This way everyone who works on this project use the same preetier version and preetier settings
+
+
+[Reference](https://www.jetbrains.com/help/webstorm/prettier.html#ws_prettier_install)  
+
+
+### AceJump
+### String Manipulation
 
 
 
+# Create a project
+[Reference](https://angular.dev/tools/cli/setup-local#create-a-workspace-and-initial-application)
+
+1. Clone this repo down to your IDE
+2. Create a new app
+   ```bash
+   ng new medium
+   ```
+
+[Workspace](https://angular.io/guide/glossary#workspace): A collection of angular projects (that is, applications and libraries) powered by the Angular CLI that are typically co-located in a single source-control repository.
+
+
+
+# 
+[Reference]()
+
+# 
+[Reference]()
