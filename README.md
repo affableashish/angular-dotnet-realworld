@@ -141,7 +141,7 @@ Standard for working with JS TS projects.
 
 It already comes bundled with it
 
-<img width="450" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/27ea62a8-3286-4a08-9280-5c20383edd70">
+<img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/7fe063f4-734c-4b65-a15d-b8ab81f2da3e">
 
 To use it, you have to install it as a dev dependency on your project
  
@@ -219,11 +219,11 @@ Call Stack:
 
    <img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/f3b8349f-013b-4b06-ba56-f08e5f2b9877">
 
-6. Event loop picks the callback up and pushes it to the stack and it's run.
+5. Event loop picks the callback up and pushes it to the stack and it's run.
 
    <img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/b3daef5e-2721-4ff5-9375-ac4f83ae687c">
 
-7. The end
+6. The end
 
    <img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/621b2402-5558-4172-9618-81db65d20fd4">
 
