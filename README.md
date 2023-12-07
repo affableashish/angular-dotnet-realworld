@@ -158,8 +158,6 @@ This way everyone who works on this project use the same preetier version and pr
 ### AceJump
 ### String Manipulation
 
-
-
 # Create a project
 [Reference](https://angular.dev/tools/cli/setup-local#create-a-workspace-and-initial-application)
 
@@ -171,21 +169,6 @@ This way everyone who works on this project use the same preetier version and pr
 
 [Workspace](https://angular.io/guide/glossary#workspace): A collection of angular projects (that is, applications and libraries) powered by the Angular CLI that are typically co-located in a single source-control repository.
 
-			switch (easing)
-			{
-				case nameof(Linear):
-					return nameof(Linear);
-				case nameof(SinIn):
-					return nameof(SinIn);
-				case nameof(SinOut):
-					return nameof(SinOut);
-				case nameof(SinInOut):
-					return nameof(SinInOut);
-				case nameof(CubicIn):
-					return nameof(CubicIn);
-
-     
-
 # JS Event Loop (Prelude to RxJS stuffs)
 [Reference](https://youtu.be/8aGhZQkoFbQ?si=18SXPdusSrtiTED2)
 
@@ -196,7 +179,7 @@ JS runtime like V8 has call stack and a heap, but not the other stuffs.
 
 <img width="500" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/95c1dc0d-7993-4edb-a774-0bacc0b0108d">
 
-SInce JS is single threaded, it has single stack. So it can only do one thing at a time.
+Since JS is single threaded, it has single stack. So it can only do one thing at a time.
 
 For eg:
 
@@ -206,9 +189,10 @@ Here the main() is the anonymous function you see in browser console which calls
 
 If the call stack has things on it, the browser can't do anything else. It gets stuck.
 
-The solution is asynchronous callbacks.
+The **solution** is _asynchronous callbacks_.
 
-`XHR` is an API provided by the browser. It doesn't live in the V8 runtime.
+For eg:  
+Below shows how the browser and runtime work to make an asynchronous call.
 
 Call Stack: 
 1. At first line
@@ -224,7 +208,7 @@ Call Stack:
    ```
    <img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/f9aa89ac-e748-4361-bedf-c86bd27d54f1">
    
-   The code for running this AJAX request doesn't live in the JS runtime, it lives in the browser as a web api so we spin it up with a callback. And the code continues to run by going to next line.
+   The code for running this AJAX request (`XHR`) doesn't live in the JS runtime, it lives in the browser as a web api so we spin it up with a callback. And the code continues to run by going to next line.
 3. At third line
    ```
    log('JSConfEU')
