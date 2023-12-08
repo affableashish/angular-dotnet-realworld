@@ -158,6 +158,21 @@ This way everyone who works on this project use the same preetier version and pr
 ### AceJump
 ### String Manipulation
 
+# Need for Nx
+## Monorepos
+[Reference](https://monorepo.tools/#understanding-monorepos)
+
+A monorepo is a single repository containing multiple distinct projects, with well-defined relationships.
+
+<img width="450" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/2a374d20-6776-4e5a-a05e-27c03560e1d4">
+
+A good monorepo is the opposite of monolithic!
+
+<img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/c173e48b-1df5-43e6-b695-3bfb484af9c3">
+
+Nx -> RxJs (+Signals in the future) -> Setup Rider for Frontend dev -> Code along with Monsterlessons guy + official docs
+
+
 # Create a project
 [Reference](https://angular.dev/tools/cli/setup-local#create-a-workspace-and-initial-application)
 
