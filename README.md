@@ -143,13 +143,16 @@ It already comes bundled with it
 
 <img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/7fe063f4-734c-4b65-a15d-b8ab81f2da3e">
 
-To use it, you have to install it as a dev dependency on your project
- 
+To use it, you have to install it as a dev dependency on your project. This way everyone who works on this project use the same preetier version and preetier settings. This will appear in `package.json`.
 ```bash
 npm install --save-dev --save-exact prettier
 ```
 
-This way everyone who works on this project use the same preetier version and preetier settings
+`--save-dev` means to install that package as a dev dependency which is a dependency that is only required for dev and testing.  
+By installing it as a development dependency, you can ensure that it is not included in the production build of your application, which can help reduce the size of the final bundle.
+
+`--save-exact` is used to lock the version of the package you're installing. This is useful when you want to ensure that your application always uses a specific version of a package, even if newer versions are released. 
+
 
 
 [Reference](https://www.jetbrains.com/help/webstorm/prettier.html#ws_prettier_install)  
@@ -169,6 +172,81 @@ A monorepo is a single repository containing multiple distinct projects, with we
 A good monorepo is the opposite of monolithic!
 
 <img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/c173e48b-1df5-43e6-b695-3bfb484af9c3">
+
+## How Monorepo can increase velocity
+[Reference](https://devblogs.microsoft.com/startups/using-monorepos-to-increase-velocity-during-early-stages-of-product-development/)
+
+## Example usage of Nx with .NET
+[Reference](https://www.youtube.com/live/uS9RSoqTwVw?si=WozC85bXrGn7aSWD)
+
+### Create Nx workspace
+### Install plugin to your workspace as a dev dependency
+npx add -D @nx-dotnet/core
+
+Check everything about the plugin
+nx list @nx-dotnet/core
+
+It'll show you info about the generators and executors/builders.
+ 
+### Run init generatro
+nx g @nx-dotnet/core:init
+
+This updates nx.json, package.json, creates Directory.Build.props, Directory.Build.targets etc.
+
+Now nx.json will have "nx-dotnet/core" inside "plugins array. It just tell that "hey, now we're going to analyze dotnet files now"
+
+paclage.json will have "@nrwl/js" for TS type generation and also have "@nx-dotnet/core"
+
+It'll also add "dotnet-tools.json", this enables you to extend the .NET cli. It keeps track if tools (like EF) you install and what version they're at.
+
+Directory.Build.props, Directory.Build.targets get added to root.
+
+Directory.Build.props <--- Kinda like variable declarions.
+Directory.Build.targets <--- 
+
+
+Now you can add your .NET project anywhere like by going to a folder (inside the nx workspace) and do `dotnet new webapi` or something and it should be picked up by Nx and shown in the `nx graph`.
+But Nx recommends creating apps with their generatoru because you get niceer stuffs.
+
+```
+nx g @nx-dotnet/core:app dotnet-api
+```
+
+There's a question:
+Which path naming conventions should the project use? Since you're using nx, use nx.
+
+nx <--- use-kebab-case
+dotnet <--- Use.Pascal.Case
+
+There's guide for dealing with .sln files in the docs. Solutions aren't preferred when you're using Nx workspace though.
+
+You can install NxConsole and take a look at it.
+
+You can hit "Serve" to launch the app.
+
+Inside libs, you'll see few projects. Like thge swagger one.
+If you run it, you'll update swagger.json.
+
+libs/generated/your-api-swagger/project.json
+There's codegen which if you run will update  TS types.
+You can run it like
+```
+nx run your-api-swagger:codegen
+```
+
+You can see this generated type in:
+
+libs/generated/your-api-types/src/interfaces/todo.ts <-- DTO for your C# endpoint to be used in frontend
+
+which can be used by the frontend client.
+
+If you use this in frontned, Nx will trace the depenedency back to this generated library, and this generated library knows that whenever it builds it has to run codegen first, codegen knows it has to run swagger first.
+
+
+
+
+
+
 
 Nx -> RxJs (+Signals in the future) -> Setup Rider for Frontend dev -> Code along with Monsterlessons guy + official docs
 
