@@ -184,7 +184,7 @@ A good monorepo is the opposite of monolithic!
 
 # Create frontend and backend projects
 ## Create a GiHub repo to host your mono repo
-In this example, I created this repo to host my projects. Note that I'll use the name of this repo (`angular-dotnet-realworld`) as the name of the workspace when I'll create nx-workspace below.
+In this example, I created this repo to host my projects. Note that I'll use the name of this repo (`angular-dotnet-realworld`) as the name of the workspace when I create nx-workspace below.
 
 ## Create frontend project that uses Angular
 [Reference](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial)
@@ -210,7 +210,7 @@ The questions and the setting I chose are as follows
 
 ## Push nx-workspace to your GitHub repo
 Clone this empty Git repo down to your local. I'm using Rider.  
-Make sure to change the name to not match with what you already have, i.e. `angular-dotnet-realworld`.
+Make sure to change the name so as not to match with what you already have, i.e. `angular-dotnet-realworld`.
 
 <img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/de9c4725-e347-43e4-8a05-c5f0fc57f8fb">
 
@@ -222,7 +222,7 @@ Since I already have my `README` file from GitHub repo creation, rename the `REA
 
 Go to commit window, add the files and commit + push to GitHub.
 
-<img width="450" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/202928e0-882a-4aea-8cf2-2e18ef6639ae">
+<img width="350" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/202928e0-882a-4aea-8cf2-2e18ef6639ae">
 
 
 
