@@ -164,7 +164,7 @@ https://plugins.jetbrains.com/plugin/21060-nx-console
 
 # Why Nx?
 ## Monorepos
-[Reference](https://monorepo.tools/#understanding-monorepos)
+[Understanding Monorepos](https://monorepo.tools/#understanding-monorepos)
 
 A monorepo is a single repository containing multiple distinct projects, with well-defined relationships.
 
@@ -173,26 +173,23 @@ A monorepo is a single repository containing multiple distinct projects, with we
 ## Monorepos can help increase velocity
 [Reference](https://devblogs.microsoft.com/startups/using-monorepos-to-increase-velocity-during-early-stages-of-product-development/)
 
-## Example usage of Nx with .NET
-[Reference](https://www.youtube.com/live/uS9RSoqTwVw?si=WozC85bXrGn7aSWD)
-
 # Create frontend and backend projects
-## Create a GiHub repo to host your mono repo
+## Create a GitHub repo to host your mono repo
 In this example, I created this repo to host my projects. Note that I'll use the name of this repo (`angular-dotnet-realworld`) as the name of the workspace when I create nx-workspace below.
 
 ## Create frontend project that uses Angular
-Reference: [Getting Started](https://nx.dev/getting-started/installation)  
+Reference: [Getting Started with Nx](https://nx.dev/getting-started/installation)  
+Reference: [Create Nx Workspace](https://nx.dev/nx-api/nx/documents/create-nx-workspace)  
 Reference: [Angular Monorepo Tutorial](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial)  
-Reference: [.NET Tutorial](https://nx.dev/showcase/example-repos/add-dotnet)  
-Reference: [Create Nx Workspace](https://nx.dev/nx-api/nx/documents/create-nx-workspace)
 
 Open Terminal in your rider and create nx workspace
 
 ```bash
-npx create-nx-workspace@latest --skipGit=true
+Ashishs-MacBook-Pro:RiderProjects ashishkhanal$ npx create-nx-workspace@latest --skipGit=true
 ```
+(As you can see, I'm not inside the repo/ project folder while running the command. The repo folder will be created by above command)
 
-The questions and the answers I chose are as follows
+The questions and answers I chose are as follows
 ```
 ✔ Where would you like to create your workspace? · angular-dotnet-realworld
 ✔ Which stack do you want to use? · angular
@@ -205,8 +202,31 @@ The questions and the answers I chose are as follows
 ✔ Enable distributed caching to make your CI faster · No
 ```
 
+Typically, an integrated Nx workspace places application projects in the apps folder and library projects in the libs folder. Applications are encouraged to be as light-weight as possible so that more code is pushed into libraries and can be reused in other projects.
+
+The nx.json file contains configuration settings for Nx itself and global default settings that individual projects inherit.
+
+### Run the app
+Navigate to the workspace folder and server the app
+```bash
+cd angular-dotnet-realworld
+nx serve angular-frontend
+```
+
+Or you can just use Nx Console to run it
+
+<img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/71bfef49-ad36-4adf-9f73-12f2e79dd146">
+
+The app starts running at `http://localhost:4200/`
+
+<img width="650" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/d9af2dfd-fcb4-4545-b349-9d78182170e3">
+
+Get ready for next steps
+
+<img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/0b4c52b4-bf55-4a7e-a890-381451b58dbb">
+
 ## Push nx-workspace to your GitHub repo
-Clone this empty Git repo down to your local. I'm using Rider.  
+Clone this empty Git repo down to your local.  
 Make sure to change the name so as not to match with what you already have, i.e. `angular-dotnet-realworld`.
 
 <img width="550" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/de9c4725-e347-43e4-8a05-c5f0fc57f8fb">
@@ -220,6 +240,11 @@ Since I already have my `README` file from GitHub repo creation, rename the `REA
 Go to commit window, add the files and commit + push to GitHub.
 
 <img width="350" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/202928e0-882a-4aea-8cf2-2e18ef6639ae">
+
+## Create backend project that uses .NET
+Reference: [Nx .NET Tutorial](https://nx.dev/showcase/example-repos/add-dotnet)  
+Reference: [Nx using .NET and Github Actions]https://www.youtube.com/live/uS9RSoqTwVw?si=WozC85bXrGn7aSWD)
+
 
 
 
