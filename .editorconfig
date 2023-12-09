@@ -1,4 +1,10 @@
 # Editor configuration, see http://editorconfig.org
+
+# top-most EditorConfig file
+# EditorConfig files are read from top to bottom and the most recent rules found take precedence.
+# Settings are recognized from the nearest .editorconfig file in the file's path up the directory structure until the root directory is reached or a .editorconfig file with root=true is found.
+# When root = true is specified, the searching will stop if this .editorconfig file is reached, even if there might be more .editorconfig files in the directory tree above this file.
+# This can be useful in a large project where different subprojects have different coding styles, but you can still have a top-level .editorconfig file for general settings and override those for specific directories with other .editorconfig files.
 root = true
 
 [*]
