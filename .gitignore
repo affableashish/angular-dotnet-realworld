@@ -22,6 +22,7 @@ node_modules
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
+# Means that the extensions.json file inside the .vscode directory should not be ignored
 !.vscode/extensions.json
 *.code-workspace
 
