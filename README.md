@@ -181,9 +181,12 @@ A monorepo is a single repository containing multiple distinct projects, with we
 In this example, I created this repo to host my projects. Note that I'll use the name of this repo (`angular-dotnet-realworld`) as the name of the workspace when I create nx-workspace below.
 
 ## Create frontend project that uses Angular
-Reference: [angular-monorepo-tutorial](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial)
+Reference: [Getting Started](https://nx.dev/getting-started/installation)  
+Reference: [Angular Monorepo Tutorial](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial)  
+Reference: [.NET Tutorial](https://nx.dev/showcase/example-repos/add-dotnet)  
+Reference: [Create Nx Workspace](https://nx.dev/nx-api/nx/documents/create-nx-workspace)
 
-Open Terminal in your rider and [create nx workspace](https://nx.dev/nx-api/nx/documents/create-nx-workspace)
+Open Terminal in your rider and create nx workspace
 
 ```bash
 npx create-nx-workspace@latest --skipGit=true
