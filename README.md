@@ -86,7 +86,7 @@ Now check it
 
 [Reference](https://heynode.com/tutorial/install-nodejs-locally-nvm/)
 
-# Setup Angular CLI
+# Setup Angular CLI (Can be skipped as I create projects using Nx in the create projects section below)
 [Reference](https://angular.dev/tools/cli/setup-local)
 
 Choose either way (1 or 2) shown below.
@@ -101,11 +101,6 @@ Choose either way (1 or 2) shown below.
    npm install -g @angular/cli
    ```
 
-Later when you want to **uninstall** Angular CLI, you can simply do this
-```bash
-npm uninstall -g @angular/cli
-```
-
 Now check the Angular version
 ```bash
 ng version
@@ -117,10 +112,15 @@ If it asks you to allow angular cli to autocomplete commands, choose Y which wil
 
 <img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/70f6a3d1-79fb-4cf8-a529-780421099368">
 
+Later when you want to **uninstall** Angular CLI, you can simply do this
+```bash
+npm uninstall -g @angular/cli
+```
+
 # Setting up your IDE
 I'm using Jetbrains Rider. It already comes with the features present in WebStorm so I don't have to use a separate IDE for doing full stack work.
 
-<img width="650" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/f99a9814-0ef9-4f9e-aa39-68be1aeebb7a">
+<img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/f99a9814-0ef9-4f9e-aa39-68be1aeebb7a">
 
 [Reference](https://www.jetbrains.com/rider/features/)
 
@@ -133,15 +133,17 @@ I'm using Jetbrains Rider. It already comes with the features present in WebStor
 
    <img width="200" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/cb655f07-317e-441a-88c1-8c2f820ee019">
 
+2. I'll add more when I find more cool settings to turn on...
+
 ## Plugins in your Jetbrains IDE Rider
 ### Preetier
-[Reference](https://prettier.io/docs/en/webstorm)
+[Setting up Prettier in Jetbrains IDEs](https://prettier.io/docs/en/webstorm)
 
 Standard for working with JS TS projects.
 
 It already comes bundled with it
 
-<img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/7fe063f4-734c-4b65-a15d-b8ab81f2da3e">
+<img width="550" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/7fe063f4-734c-4b65-a15d-b8ab81f2da3e">
 
 To use it, you have to install it as a dev dependency on your project. This way everyone who works on this project use the same preetier version and preetier settings. This will appear in `package.json`.
 ```bash
@@ -153,31 +155,103 @@ By installing it as a development dependency, you can ensure that it is not incl
 
 `--save-exact` is used to lock the version of the package you're installing. This is useful when you want to ensure that your application always uses a specific version of a package, even if newer versions are released. 
 
-
-
-[Reference](https://www.jetbrains.com/help/webstorm/prettier.html#ws_prettier_install)  
-
-
 ### AceJump
+https://plugins.jetbrains.com/plugin/7086-acejump
 ### String Manipulation
+https://plugins.jetbrains.com/plugin/2162-string-manipulation
+### Nx Console
+https://plugins.jetbrains.com/plugin/21060-nx-console
 
-# Need for Nx
+# Why Nx?
 ## Monorepos
-[Reference](https://monorepo.tools/#understanding-monorepos)
+[Understanding Monorepos](https://monorepo.tools/#understanding-monorepos)
 
 A monorepo is a single repository containing multiple distinct projects, with well-defined relationships.
 
 <img width="450" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/2a374d20-6776-4e5a-a05e-27c03560e1d4">
 
-A good monorepo is the opposite of monolithic!
-
-<img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/c173e48b-1df5-43e6-b695-3bfb484af9c3">
-
-## How Monorepo can increase velocity
+## Monorepos can help increase velocity
 [Reference](https://devblogs.microsoft.com/startups/using-monorepos-to-increase-velocity-during-early-stages-of-product-development/)
 
-## Example usage of Nx with .NET
-[Reference](https://www.youtube.com/live/uS9RSoqTwVw?si=WozC85bXrGn7aSWD)
+# Create frontend and backend projects
+## Create a GitHub repo to host your mono repo
+In this example, I created this repo to host my projects. Note that I'll use the name of this repo (`angular-dotnet-realworld`) as the name of the workspace when I create nx-workspace below.
+
+## Create frontend project that uses Angular
+Reference: [Getting Started with Nx](https://nx.dev/getting-started/installation)  
+Reference: [Create Nx Workspace](https://nx.dev/nx-api/nx/documents/create-nx-workspace)  
+Reference: [Angular Monorepo Tutorial](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial)  
+
+Open Terminal in your rider and create nx workspace
+
+```bash
+Ashishs-MacBook-Pro:RiderProjects ashishkhanal$ npx create-nx-workspace@latest --skipGit=true
+```
+(As you can see, I'm not inside the repo/ project folder while running the command. The repo folder will be created by above command)
+
+The questions and answers I chose are as follows
+```
+✔ Where would you like to create your workspace? · angular-dotnet-realworld
+✔ Which stack do you want to use? · angular
+✔ Integrated monorepo, or standalone project? · integrated (Integrated Monorepo:  Nx creates a monorepo that contains multiple projects.)
+✔ Application name · angular-client
+✔ Which bundler would you like to use? · esbuild
+✔ Default stylesheet format · css
+✔ Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? · No
+✔ Test runner to use for end to end (E2E) tests · playwright
+✔ Enable distributed caching to make your CI faster · No
+```
+
+Typically, an integrated Nx workspace places application projects in the apps folder and library projects in the libs folder. Applications are encouraged to be as light-weight as possible so that more code is pushed into libraries and can be reused in other projects.
+
+The nx.json file contains configuration settings for Nx itself and global default settings that individual projects inherit.
+
+### Run the app
+Navigate to the workspace folder and server the app
+```bash
+cd angular-dotnet-realworld
+nx serve angular-frontend
+```
+
+Or you can just use Nx Console to run it
+
+<img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/71bfef49-ad36-4adf-9f73-12f2e79dd146">
+
+The app starts running at `http://localhost:4200/`
+
+<img width="650" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/d9af2dfd-fcb4-4545-b349-9d78182170e3">
+
+Get ready for next steps
+
+<img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/0b4c52b4-bf55-4a7e-a890-381451b58dbb">
+
+## Push nx-workspace to your GitHub repo
+Clone this empty Git repo down to your local.  
+Make sure to change the name so as not to match with what you already have, i.e. `angular-dotnet-realworld`.
+
+<img width="550" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/de9c4725-e347-43e4-8a05-c5f0fc57f8fb">
+
+Now copy hidden `.git` folder from this cloned folder to your nx-workspace folder.
+
+<img width="300" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/f720faff-c924-47fa-ad8a-754ab2079f3b">
+
+Since I already have my `README` file from GitHub repo creation, rename the `README` from nx-workspace to `NxREADME`.
+
+Go to commit window, add the files and commit + push to GitHub.
+
+<img width="350" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/202928e0-882a-4aea-8cf2-2e18ef6639ae">
+
+## Create backend project that uses .NET
+Reference: [Nx .NET Tutorial](https://nx.dev/showcase/example-repos/add-dotnet)  
+Reference: [Nx using .NET and Github Actions]https://www.youtube.com/live/uS9RSoqTwVw?si=WozC85bXrGn7aSWD)
+
+
+
+
+
+
+
+
 
 ### Create Nx workspace
 ### Install plugin to your workspace as a dev dependency
@@ -189,7 +263,7 @@ nx list @nx-dotnet/core
 It'll show you info about the generators and executors/builders.
  
 ### Run init generatro
-nx g @nx-dotnet/core:init
+nx g @nx-dotnet/core:init <appName. Not sure if this is optional. Time will tell.>
 
 This updates nx.json, package.json, creates Directory.Build.props, Directory.Build.targets etc.
 
@@ -240,7 +314,25 @@ libs/generated/your-api-types/src/interfaces/todo.ts <-- DTO for your C# endpoin
 
 which can be used by the frontend client.
 
-If you use this in frontned, Nx will trace the depenedency back to this generated library, and this generated library knows that whenever it builds it has to run codegen first, codegen knows it has to run swagger first.
+If you use this in frontned like so
+`import { Todo } from '@deno-todo/generated/your-api-types';`
+
+Nx will trace the depenedency back to this generated library, and this generated library knows that whenever it builds it has to run codegen first, codegen knows it has to run swagger first.
+
+So if you change your model in the backend you'll start getting error in the frontend automatically. There's nice type safety there.
+
+
+Take a look at the graph.
+
+``nx graph`
+
+### Containerization using nx-container
+[Reference](https://github.com/gperdomor/nx-tools/blob/main/packages/nx-container/README.md)
+
+[Example with Kubernetes](https://creotip.io/posts/nx-monorepo-running-microservices-locally-with-docker-kubernetes).
+
+[Fullstack example - Looks nice](https://thefullstack.engineer/full-stack-development-series-part-1-getting-started-with-nx-angular-and-nestjs/)
+
 
 
 
