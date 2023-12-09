@@ -86,7 +86,7 @@ Now check it
 
 [Reference](https://heynode.com/tutorial/install-nodejs-locally-nvm/)
 
-# Setup Angular CLI
+# Setup Angular CLI (Can be skipped as I create projects using Nx in the create projects section below)
 [Reference](https://angular.dev/tools/cli/setup-local)
 
 Choose either way (1 or 2) shown below.
@@ -101,11 +101,6 @@ Choose either way (1 or 2) shown below.
    npm install -g @angular/cli
    ```
 
-Later when you want to **uninstall** Angular CLI, you can simply do this
-```bash
-npm uninstall -g @angular/cli
-```
-
 Now check the Angular version
 ```bash
 ng version
@@ -117,10 +112,15 @@ If it asks you to allow angular cli to autocomplete commands, choose Y which wil
 
 <img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/70f6a3d1-79fb-4cf8-a529-780421099368">
 
+Later when you want to **uninstall** Angular CLI, you can simply do this
+```bash
+npm uninstall -g @angular/cli
+```
+
 # Setting up your IDE
 I'm using Jetbrains Rider. It already comes with the features present in WebStorm so I don't have to use a separate IDE for doing full stack work.
 
-<img width="650" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/f99a9814-0ef9-4f9e-aa39-68be1aeebb7a">
+<img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/f99a9814-0ef9-4f9e-aa39-68be1aeebb7a">
 
 [Reference](https://www.jetbrains.com/rider/features/)
 
@@ -133,15 +133,17 @@ I'm using Jetbrains Rider. It already comes with the features present in WebStor
 
    <img width="200" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/cb655f07-317e-441a-88c1-8c2f820ee019">
 
+2. I'll add more when I find more cool settings to turn on...
+
 ## Plugins in your Jetbrains IDE Rider
 ### Preetier
-[Reference](https://prettier.io/docs/en/webstorm)
+[Setting up Prettier in Jetbrains IDEs](https://prettier.io/docs/en/webstorm)
 
 Standard for working with JS TS projects.
 
 It already comes bundled with it
 
-<img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/7fe063f4-734c-4b65-a15d-b8ab81f2da3e">
+<img width="550" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/7fe063f4-734c-4b65-a15d-b8ab81f2da3e">
 
 To use it, you have to install it as a dev dependency on your project. This way everyone who works on this project use the same preetier version and preetier settings. This will appear in `package.json`.
 ```bash
@@ -153,10 +155,6 @@ By installing it as a development dependency, you can ensure that it is not incl
 
 `--save-exact` is used to lock the version of the package you're installing. This is useful when you want to ensure that your application always uses a specific version of a package, even if newer versions are released. 
 
-
-
-[Reference](https://www.jetbrains.com/help/webstorm/prettier.html#ws_prettier_install)  
-
 ### AceJump
 https://plugins.jetbrains.com/plugin/7086-acejump
 ### String Manipulation
@@ -164,17 +162,13 @@ https://plugins.jetbrains.com/plugin/2162-string-manipulation
 ### Nx Console
 https://plugins.jetbrains.com/plugin/21060-nx-console
 
-# Need for Nx
+# Why Nx?
 ## Monorepos
 [Reference](https://monorepo.tools/#understanding-monorepos)
 
 A monorepo is a single repository containing multiple distinct projects, with well-defined relationships.
 
 <img width="450" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/2a374d20-6776-4e5a-a05e-27c03560e1d4">
-
-A good monorepo is the opposite of monolithic!
-
-<img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/c173e48b-1df5-43e6-b695-3bfb484af9c3">
 
 ## Monorepos can help increase velocity
 [Reference](https://devblogs.microsoft.com/startups/using-monorepos-to-increase-velocity-during-early-stages-of-product-development/)
@@ -187,15 +181,15 @@ A good monorepo is the opposite of monolithic!
 In this example, I created this repo to host my projects. Note that I'll use the name of this repo (`angular-dotnet-realworld`) as the name of the workspace when I create nx-workspace below.
 
 ## Create frontend project that uses Angular
-[Reference](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial)
+Reference: [angular-monorepo-tutorial](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial)
 
-Open Terminal in your rider and create a new [workspace](https://nx.dev/nx-api/nx/documents/create-nx-workspace)
+Open Terminal in your rider and [create nx workspace](https://nx.dev/nx-api/nx/documents/create-nx-workspace)
 
 ```bash
 npx create-nx-workspace@latest --skipGit=true
 ```
 
-The questions and the setting I chose are as follows
+The questions and the answers I chose are as follows
 ```
 ✔ Where would you like to create your workspace? · angular-dotnet-realworld
 ✔ Which stack do you want to use? · angular
@@ -212,7 +206,7 @@ The questions and the setting I chose are as follows
 Clone this empty Git repo down to your local. I'm using Rider.  
 Make sure to change the name so as not to match with what you already have, i.e. `angular-dotnet-realworld`.
 
-<img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/de9c4725-e347-43e4-8a05-c5f0fc57f8fb">
+<img width="550" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/de9c4725-e347-43e4-8a05-c5f0fc57f8fb">
 
 Now copy hidden `.git` folder from this cloned folder to your nx-workspace folder.
 
