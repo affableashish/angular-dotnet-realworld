@@ -157,9 +157,12 @@ By installing it as a development dependency, you can ensure that it is not incl
 
 [Reference](https://www.jetbrains.com/help/webstorm/prettier.html#ws_prettier_install)  
 
-
 ### AceJump
+https://plugins.jetbrains.com/plugin/7086-acejump
 ### String Manipulation
+https://plugins.jetbrains.com/plugin/2162-string-manipulation
+### Nx Console
+https://plugins.jetbrains.com/plugin/21060-nx-console
 
 # Need for Nx
 ## Monorepos
@@ -173,11 +176,60 @@ A good monorepo is the opposite of monolithic!
 
 <img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/c173e48b-1df5-43e6-b695-3bfb484af9c3">
 
-## How Monorepo can increase velocity
+## Monorepos can help increase velocity
 [Reference](https://devblogs.microsoft.com/startups/using-monorepos-to-increase-velocity-during-early-stages-of-product-development/)
 
 ## Example usage of Nx with .NET
 [Reference](https://www.youtube.com/live/uS9RSoqTwVw?si=WozC85bXrGn7aSWD)
+
+# Create frontend and backend projects
+## Create a GiHub repo to host your mono repo
+In this example, I created this repo to host my projects. Note that I'll use the name of this repo (`angular-dotnet-realworld`) as the name of the workspace when I'll create nx-workspace below.
+
+## Create frontend project that uses Angular
+[Reference](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial)
+
+Open Terminal in your rider and create a new [workspace](https://nx.dev/nx-api/nx/documents/create-nx-workspace)
+
+```bash
+npx create-nx-workspace@latest --skipGit=true
+```
+
+The questions and the setting I chose are as follows
+```
+✔ Where would you like to create your workspace? · angular-dotnet-realworld
+✔ Which stack do you want to use? · angular
+✔ Integrated monorepo, or standalone project? · integrated (Integrated Monorepo:  Nx creates a monorepo that contains multiple projects.)
+✔ Application name · angular-client
+✔ Which bundler would you like to use? · esbuild
+✔ Default stylesheet format · css
+✔ Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? · No
+✔ Test runner to use for end to end (E2E) tests · playwright
+✔ Enable distributed caching to make your CI faster · No
+```
+
+## Push nx-workspace to your GitHub repo
+Clone this empty Git repo down to your local. I'm using Rider.  
+Make sure to change the name to not match with what you already have, i.e. `angular-dotnet-realworld`.
+
+<img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/de9c4725-e347-43e4-8a05-c5f0fc57f8fb">
+
+Now copy hidden `.git` folder from this cloned folder to your nx-workspace folder.
+
+<img width="300" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/f720faff-c924-47fa-ad8a-754ab2079f3b">
+
+Since I already have my `README` file from GitHub repo creation, rename the `README` from nx-workspace to `NxREADME`.
+
+Go to commit window, add the files and commit + push to GitHub.
+
+<img width="450" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/202928e0-882a-4aea-8cf2-2e18ef6639ae">
+
+
+
+
+
+
+
 
 ### Create Nx workspace
 ### Install plugin to your workspace as a dev dependency
@@ -189,7 +241,7 @@ nx list @nx-dotnet/core
 It'll show you info about the generators and executors/builders.
  
 ### Run init generatro
-nx g @nx-dotnet/core:init
+nx g @nx-dotnet/core:init <appName. Not sure if this is optional. Time will tell.>
 
 This updates nx.json, package.json, creates Directory.Build.props, Directory.Build.targets etc.
 
@@ -240,7 +292,25 @@ libs/generated/your-api-types/src/interfaces/todo.ts <-- DTO for your C# endpoin
 
 which can be used by the frontend client.
 
-If you use this in frontned, Nx will trace the depenedency back to this generated library, and this generated library knows that whenever it builds it has to run codegen first, codegen knows it has to run swagger first.
+If you use this in frontned like so
+`import { Todo } from '@deno-todo/generated/your-api-types';`
+
+Nx will trace the depenedency back to this generated library, and this generated library knows that whenever it builds it has to run codegen first, codegen knows it has to run swagger first.
+
+So if you change your model in the backend you'll start getting error in the frontend automatically. There's nice type safety there.
+
+
+Take a look at the graph.
+
+``nx graph`
+
+### Containerization using nx-container
+[Reference](https://github.com/gperdomor/nx-tools/blob/main/packages/nx-container/README.md)
+
+[Example with Kubernetes](https://creotip.io/posts/nx-monorepo-running-microservices-locally-with-docker-kubernetes).
+
+[Fullstack example - Looks nice](https://thefullstack.engineer/full-stack-development-series-part-1-getting-started-with-nx-angular-and-nestjs/)
+
 
 
 
