@@ -86,6 +86,23 @@ Now check it
 
 [Reference](https://heynode.com/tutorial/install-nodejs-locally-nvm/)
 
+## npm vs npx
+### npm
+It is used to install, update, and manage packages from the npm registry in your projects or globally on your machine.  
+For eg:
+```bash
+npm install --save-dev --save-exact prettier
+```
+### npx
+`npx` is typically thought of as 'npm execute'. It allows you to run packages.
+
+For eg:
+```bash
+npx prettier --write somefile.js
+```
+
+It first looks into your local project's dependencies for a command. If it can't find it locally, then it searches in globally installed packages. And if it can't find it there either, npx will temporarily download, use, and remove the package - helping ensure you use the latest version all the time without needing to permanently install it.
+
 # Setup Angular CLI (Can be skipped as I create projects using Nx in the create projects section below)
 [Reference](https://angular.dev/tools/cli/setup-local)
 
@@ -139,13 +156,11 @@ I'm using Jetbrains Rider. It already comes with the features present in WebStor
 ### Preetier
 [Setting up Prettier in Jetbrains IDEs](https://prettier.io/docs/en/webstorm)
 
-Standard for working with JS TS projects.
-
-It already comes bundled with it
+Standard for working with JS TS projects. Rider already comes bundled with it
 
 <img width="550" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/7fe063f4-734c-4b65-a15d-b8ab81f2da3e">
 
-To use it, you have to install it as a dev dependency on your project. This way everyone who works on this project use the same preetier version and preetier settings. This will appear in `package.json`.
+The IDE already uses Prettier but to make the settings consistent across teams, you might want to install it as a dev dependency of the project so that everyone who works on this project use the same preetier version and preetier settings. This will appear in `package.json`.
 ```bash
 npm install --save-dev --save-exact prettier
 ```
@@ -154,6 +169,12 @@ npm install --save-dev --save-exact prettier
 By installing it as a development dependency, you can ensure that it is not included in the production build of your application, which can help reduce the size of the final bundle.
 
 `--save-exact` is used to lock the version of the package you're installing. This is useful when you want to ensure that your application always uses a specific version of a package, even if newer versions are released. 
+
+For eg:
+```
+  "prettier": "^2.6.2", // This isn't exact because package manager can update the Minor version (^)
+  "prettier": "2.6.2", // This is exact
+```
 
 ### AceJump
 https://plugins.jetbrains.com/plugin/7086-acejump
@@ -205,6 +226,160 @@ The questions and answers I chose are as follows
 Typically, an integrated Nx workspace places application projects in the apps folder and library projects in the libs folder. Applications are encouraged to be as light-weight as possible so that more code is pushed into libraries and can be reused in other projects.
 
 The nx.json file contains configuration settings for Nx itself and global default settings that individual projects inherit.
+
+## Take a look at generated files
+`.prettierrc` just means configuration file for Prettier. It contains rules and settings that need to be applied when the tool is run. It's a convention that started with UNIX systems where an "rc file" contained "run commands" to be run at startup.
+
+1. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.editorconfig#L1-L19
+   EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs.  
+   Read more [here](https://editorconfig.org/).
+2. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.eslintignore#L1
+   This file is used to specify files or directories that ESlint should ignore while linting the code.  
+   ESLint is a configurable JavaScript linter. It helps you find and fix problems in your JavaScript code. Problems can be anything from potential runtime bugs, to not following best practices, to styling issues. 
+   Read more [here](https://eslint.org/docs/latest/use/core-concepts).
+3. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.gitignore#L1
+4. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.prettierignore#L1-L5
+   This file is used to specify the files or directories that Prettier should ignore.
+   Prettier is an opinionated code format tool which ensures that all your code adheres to a consistent style.
+   Read more [here](https://prettier.io/docs/en/).
+5. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.prettierrc#L1-L3
+   This is the configuration file for Prettier. You can specify your preferences for formatting options like print width, tab width, use of semi-colons, and single or double quotes, etc.
+
+   `.prettierrc` just means configuration file for Prettier. It contains rules and settings that need to be applied when the tool is run. It's a convention (the rc part) that started with UNIX systems where an "rc file" contained "run commands" to be run at startup.
+6. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.eslintrc.json#L1
+   This is the configuration file for ESlint. It is used to specify the parser options and rules for ESlint.
+   As you can see there are no rules (formatting) in the file. Because config for that is already stored in `.prettierrc`.
+7. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/jest.config.ts#L1
+   This file is used to specify the configuration for Jest, a JavaScript testing framework.
+   You can specify options that define how Jest runs your tests, which files it should test, any setup tasks that need to be completed before tests run, and more. By convention, it is written in TypeScript (ts).
+8. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/jest.preset.js#L1
+   
+   
+Note:
+
+| Eslint | Prettier |
+|---|---|
+| It has formating rules (mainly focused on style) | It has formating rules |
+| It ensures code quality | |
+
+
+### Taking a look inside node_modules folder
+Let's check out this package and learn
+
+<img width="550" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/7d79ab1e-5203-4af3-a5ab-645b727da7e4">
+
+#### index.js file (JS entry file)
+In `Node.js`, each file has its own module object (global object), and `module.exports` is a property of that object.
+`module.exports` is used to export a module's public API, i.e., the values, functions, or objects that you want to make available for other modules to import and use. Here, it's used to export a function that word-wraps a string.
+
+By assigning a value to `module.exports`, we specify what will be exposed from a file when require is called. 
+```js
+/* This is inside index.js*/
+module.exports = function(str, options) {
+  options = options || {};
+  if (str == null) {
+    return str;
+  }
+}
+```
+
+To use it
+```js
+// assuming word-wrap.js is in the same directory.
+var wrap = require('./word-wrap'); 
+
+var textToWrap = "This is some really long text that we want to wrap to multiple lines";
+var wrapOptions = {
+  width: 20,
+};
+
+var wrappedText = wrap(textToWrap, wrapOptions);
+```
+
+#### index.d.ts file
+This is a TypeScript declaration file. It provides types for JavaScript code to the TypeScript compiler. The `.d.ts` extension indicates that this is a Declaration File, hence the d in the name. Declaration files are used to tell TypeScript that some specific types of objects conform to an interface, without providing an actual implementation.
+
+```ts
+/* This is inside index.d.ts*/
+export = wrap;
+declare function wrap(str: string, options?: wrap.IOptions): string;
+declare namespace wrap {
+    export interface IOptions {
+        width?: number;
+        /*and so on...*/
+  }
+}
+```
+`export = wrap` is a TypeScript-specific syntax that indicates the object (`wrap` function in this case) to be exported as a single entity. In CommonJS (Node.js) terms, it is equivalent to `module.exports = wrap`.
+
+`declare function wrap(...)`, tells TypeScript that there is a function called `wrap` that takes certain parameters and returns a specific type, but we're not going to provide the implementation here. We are simply describing the shape of a function.
+
+The type signature specified in index.d.ts should match the actual JavaScript implementation in index.js file.
+
+We could use this package in some TS code like so
+```ts
+import * as wrap from 'word-wrap';
+
+const options: wrap.IOptions = {
+  width: 30
+};
+
+const input = "This is a really long string that needs to be wrapped after a certain number of characters per line";
+
+const result = wrap(input, options);
+
+console.log(result);
+```
+
+If there was no `index.d.ts` file, we could use `index.js` file present inside `node_modules/word-wrap` folder in JS code like so
+```js
+// load the module
+// Node.js will look for the module named 'word-wrap'
+// (it does this by searching in node_modules directory and some other locations),
+// find its JavaScript entry file (index.js in the case of most modules),
+// and execute the code in that file.
+// Whatever is assigned to module.exports in index.js is then returned by require('word-wrap').
+var wrap = require('word-wrap');
+
+// prepare the options
+var options = {width: 30};
+
+// prepare the text to wrap
+var input = "This is a really long string that needs to be wrapped after a certain number of characters per line";
+
+// Use the function
+var result = wrap(input, options);
+
+console.log(result);
+```
+
+
+
+
+
+
+
+in a TS 
+
+
+
+
+
+
+
+
+
+
+
+1. .eslintignore: This file is used to specify files or directories that ESlint should ignore while linting the code. ESlint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
+.prettierignore: Similar to .eslintignore, this file is used to specify the files or directories that Prettier should ignore. Prettier is an opinionated code format tool which ensures that all your code adheres to a consistent style.
+.prettierrc: This is the configuration file for Prettier. You can specify your preferences for formatting options like print width, tab width, use of semi-colons, and single or double quotes, etc.
+.eslintrc: This is the configuration file for ESlint. It is used to specify the parser options and rules for ESlint.
+jest.config.js: This is the configuration file for Jest, a JavaScript testing framework developed by Facebook. Here you can specify settings related to how Jest will run tests on your application.
+nx.json: This is the configuration file for Nrwl NX. Nx is a suite of powerful, extensible dev tools to help you architect, test, and build at any scale – integrating seamlessly with modern technologies and libraries while providing a robust CLI, caching, dependency management and more.
+package.json: This is a file is used by NPM to store metadata for projects published as NPM modules. It contains information about your project, such as its name, version, description, and what dependencies it has that npm needs to install.
+package-lock.json: This is automatically generated for any operations where npm modifies the node_modules or the package.json. It describes the exact tree that was generated, such that subsequent installs are able to generate identical trees, regardless of intermediate dependency updates.
+tsconfig.base.json: This is a special TypeScript configuration file that specifies root files and compiler options required to compile the project. TypeScript is a strict syntactical superset of JavaScript and adds optional static typing to the language. .base is typically the main config file, while others tsconfig.*.json on the workspace extend this main file.
 
 ### Run the app
 Navigate to the workspace folder and server the app
