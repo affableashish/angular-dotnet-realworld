@@ -154,8 +154,6 @@ I'm using Jetbrains Rider. It already comes with the features present in WebStor
 
 ## Plugins in your Jetbrains IDE Rider
 ### Preetier
-[Setting up Prettier in Jetbrains IDEs](https://prettier.io/docs/en/webstorm)
-
 Standard for working with JS TS projects. Rider already comes bundled with it
 
 <img width="550" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/7fe063f4-734c-4b65-a15d-b8ab81f2da3e">
@@ -175,6 +173,9 @@ For eg:
   "prettier": "^2.6.2", // This isn't exact because package manager can update the Minor version (^)
   "prettier": "2.6.2", // This is exact
 ```
+
+[How to setup Prettier](https://youtu.be/DqfQ4DPnRqI?si=xpbwGE0UXo17_SPW)  
+[Setting up Prettier in Jetbrains IDEs](https://prettier.io/docs/en/webstorm)
 
 ### AceJump
 https://plugins.jetbrains.com/plugin/7086-acejump
@@ -199,6 +200,7 @@ A monorepo is a single repository containing multiple distinct projects, with we
 In this example, I created this repo to host my projects. Note that I'll use the name of this repo (`angular-dotnet-realworld`) as the name of the workspace when I create nx-workspace below.
 
 ## Create frontend project that uses Angular
+Reference: [Watch this YT video from Nx first](https://youtu.be/ZAO0yXupIIE?si=1CYbAQNIW6MjZOQD)  
 Reference: [Getting Started with Nx](https://nx.dev/getting-started/installation)  
 Reference: [Create Nx Workspace](https://nx.dev/nx-api/nx/documents/create-nx-workspace)  
 Reference: [Angular Monorepo Tutorial](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial)  
@@ -255,13 +257,22 @@ The nx.json file contains configuration settings for Nx itself and global defaul
 8. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/jest.preset.js#L1
    
    
+package.json note about being only one package.json for multiple projects: https://stackoverflow.com/a/52761971/8644294
+
 Note:
 
 | Eslint | Prettier |
 |---|---|
-| It has formating rules (mainly focused on style) | It has formating rules |
+| It has formating rules | It has formating rules |
 | It ensures code quality | |
 
+This package is going to turn off all of eslint's configuration for things that prettier already handles.
+https://github.com/affableashish/angular-dotnet-realworld/blob/5346b0b332377c7aebc28e52c7bcc8a939cf0926/package.json#L47
+
+You can run that package like so if you'd like
+```bash
+npx eslint-config-prettier somefile.js
+```
 
 ### Taking a look inside node_modules folder
 Let's check out this package and learn
@@ -297,6 +308,8 @@ var wrappedText = wrap(textToWrap, wrapOptions);
 ```
 
 #### index.d.ts file
+Read [this SO answer](https://stackoverflow.com/a/21247316/8644294) first
+
 This is a TypeScript declaration file. It provides types for JavaScript code to the TypeScript compiler. The `.d.ts` extension indicates that this is a Declaration File, hence the d in the name. Declaration files are used to tell TypeScript that some specific types of objects conform to an interface, without providing an actual implementation.
 
 ```ts
@@ -415,6 +428,88 @@ Since I already have my `README` file from GitHub repo creation, rename the `REA
 Go to commit window, add the files and commit + push to GitHub.
 
 <img width="350" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/202928e0-882a-4aea-8cf2-2e18ef6639ae">
+
+## Code generation capabilities
+Run this command to see what you get
+```bash
+nx list @nx/angular
+```
+You'll see a list of Generators and Executors/ Builders
+
+For eg:
+
+<img width="500" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/4c7cc922-b1c8-489d-a379-c802248bb108">
+
+Now to create a component, you can run something like
+```bash
+npx nx g @nx/angular:component hello-world --standalone --dry-run
+```
+All those options are found in Nx docs. Easier way is just using Nx console plugin.
+
+## Building the app for deployment
+```bash
+nx build
+```
+This will create a Prod build of our application and place that under the dist folder.
+
+## Modularizing Angular codebase with libraries
+```bash
+nx g @nx/angular:lib products --directory=modules --standalone --simpleName --dry-run
+nx g @nx/angular:lib orders --directory=modules --standalone --simpleName --dry-run
+nx g @nx/angular:lib ui --directory=modules/shared --standalone --simpleName --dry-run
+```
+
+It'll create the usual stuffs for component and also the `index.ts` file.  
+This is basically the public api for your library. This is where you control what components or other utilities you want to expose to other libraries and your application.
+
+Whenever the libs were generated, it also added them to paths inside `tsconfig.base.json`.
+
+### Importing local libraries into your app
+The static loading is just using it with import like
+```ts
+import { ProductsComponent } from '@myngapp/modules/products'
+```
+
+But we're going to do it the dynamic way by lazily loading them. 
+The lazy loading can be seen in the `nx graph` with dashed-lines.
+
+Go to app.routes.ts and add this
+```ts
+export const appRoutes: Route[] = [
+  {
+    path: ''.
+    component: NxWelcomeComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'products',
+    loadComponent: () =>
+      import('@myngapp/modules/products').then(onfulfilled:(c) => c.ProductsComponent)
+  }
+  // And so on
+]
+```
+
+### Using module boundaries to create more maintainable code
+#### Classify shared libs using types and scopes
+Go to `modules/products/project.json` and add tags for type and scope.
+
+You can use arbitrary strings here.
+
+```json
+"tags": ["type:feature", "scope:products"]
+```
+
+#### Define the rules
+Go to the root level `.eslintrc.base.json` file
+
+
+
+
+
+
+
+
 
 ## Create backend project that uses .NET
 Reference: [Nx .NET Tutorial](https://nx.dev/showcase/example-repos/add-dotnet)  
