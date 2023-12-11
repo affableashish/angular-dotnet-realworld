@@ -21,7 +21,7 @@ Find the node (below command shows you the location of the file for a given comm
 ```bash
 which node
 ```
-<img width="450" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/d91e2ed4-40ca-4459-b9a2-bb14911856ae">
+<img width="450" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/d91e2ed4-40ca-4459-b9a2-bb14911856ae">
 
 Now remove that
 ```
@@ -57,7 +57,7 @@ This is called sourcing and it executes commands from the file (`.bash_profile` 
 
 Now check your `nvm` version
 
-<img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/8ab6cd22-8492-49f0-95b5-8d355ff2aa8d">
+<img width="400" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/8ab6cd22-8492-49f0-95b5-8d355ff2aa8d">
 
 Later when you want to **uninstall** `nvm` do the following
 ```bash
@@ -79,10 +79,10 @@ Install the latest lts version.
 nvm install --lts
 ```
 
-<img width="650" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/56703672-6285-4a8e-b984-bb17299ae7e7">
+<img width="650" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/56703672-6285-4a8e-b984-bb17299ae7e7">
 
 Now check it  
-<img width="450" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/3fd706e0-16c8-4954-a49c-9a1b52ffb9be">
+<img width="450" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/3fd706e0-16c8-4954-a49c-9a1b52ffb9be">
 
 [Reference](https://heynode.com/tutorial/install-nodejs-locally-nvm/)
 
@@ -123,11 +123,11 @@ Now check the Angular version
 ng version
 ```
 
-<img width="500" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/df24558b-477d-4146-933d-ef7e9ce20dfc">
+<img width="500" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/df24558b-477d-4146-933d-ef7e9ce20dfc">
 
 If it asks you to allow angular cli to autocomplete commands, choose Y which will write this to your `.bash_profile`:
 
-<img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/70f6a3d1-79fb-4cf8-a529-780421099368">
+<img width="400" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/70f6a3d1-79fb-4cf8-a529-780421099368">
 
 Later when you want to **uninstall** Angular CLI, you can simply do this
 ```bash
@@ -137,18 +137,18 @@ npm uninstall -g @angular/cli
 # Setting up your IDE
 I'm using Jetbrains Rider. It already comes with the features present in WebStorm so I don't have to use a separate IDE for doing full stack work.
 
-<img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/f99a9814-0ef9-4f9e-aa39-68be1aeebb7a">
+<img width="600" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/f99a9814-0ef9-4f9e-aa39-68be1aeebb7a">
 
 [Reference](https://www.jetbrains.com/rider/features/)
 
 ## Settings in your Jetbrains IDE Rider
 1. Show memory
    
-   <img width="650" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/a3d99d4b-542c-4860-a460-f30b81fd3c9f">
+   <img width="650" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/a3d99d4b-542c-4860-a460-f30b81fd3c9f">
 
    The memory shows up in the bottom right corner. You can force GC to kick in when your IDE starts getting slow.
 
-   <img width="200" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/cb655f07-317e-441a-88c1-8c2f820ee019">
+   <img width="200" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/cb655f07-317e-441a-88c1-8c2f820ee019">
 
 2. I'll add more when I find more cool settings to turn on...
 
@@ -156,7 +156,7 @@ I'm using Jetbrains Rider. It already comes with the features present in WebStor
 ### Preetier
 Standard for working with JS TS projects. Rider already comes bundled with it
 
-<img width="550" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/7fe063f4-734c-4b65-a15d-b8ab81f2da3e">
+<img width="550" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/7fe063f4-734c-4b65-a15d-b8ab81f2da3e">
 
 The IDE already uses Prettier but to make the settings consistent across teams, you might want to install it as a dev dependency of the project so that everyone who works on this project use the same preetier version and preetier settings. This will appear in `package.json`.
 ```bash
@@ -190,7 +190,7 @@ https://plugins.jetbrains.com/plugin/21060-nx-console
 
 A monorepo is a single repository containing multiple distinct projects, with well-defined relationships.
 
-<img width="450" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/2a374d20-6776-4e5a-a05e-27c03560e1d4">
+<img width="450" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/2a374d20-6776-4e5a-a05e-27c03560e1d4">
 
 ## Monorepos can help increase velocity
 [Reference](https://devblogs.microsoft.com/startups/using-monorepos-to-increase-velocity-during-early-stages-of-product-development/)
@@ -232,29 +232,29 @@ The nx.json file contains configuration settings for Nx itself and global defaul
 ## Take a look at generated files
 `.prettierrc` just means configuration file for Prettier. It contains rules and settings that need to be applied when the tool is run. It's a convention that started with UNIX systems where an "rc file" contained "run commands" to be run at startup.
 
-1. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.editorconfig#L1-L19
+1. https://github.com/akhanalcs/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.editorconfig#L1-L19
    EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs.  
    Read more [here](https://editorconfig.org/).
-2. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.eslintignore#L1
+2. https://github.com/akhanalcs/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.eslintignore#L1
    This file is used to specify files or directories that ESlint should ignore while linting the code.  
    ESLint is a configurable JavaScript linter. It helps you find and fix problems in your JavaScript code. Problems can be anything from potential runtime bugs, to not following best practices, to styling issues. 
    Read more [here](https://eslint.org/docs/latest/use/core-concepts).
-3. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.gitignore#L1
-4. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.prettierignore#L1-L5
+3. https://github.com/akhanalcs/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.gitignore#L1
+4. https://github.com/akhanalcs/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.prettierignore#L1-L5
    This file is used to specify the files or directories that Prettier should ignore.
    Prettier is an opinionated code format tool which ensures that all your code adheres to a consistent style.
    Read more [here](https://prettier.io/docs/en/).
-5. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.prettierrc#L1-L3
+5. https://github.com/akhanalcs/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.prettierrc#L1-L3
    This is the configuration file for Prettier. You can specify your preferences for formatting options like print width, tab width, use of semi-colons, and single or double quotes, etc.
 
    `.prettierrc` just means configuration file for Prettier. It contains rules and settings that need to be applied when the tool is run. It's a convention (the rc part) that started with UNIX systems where an "rc file" contained "run commands" to be run at startup.
-6. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.eslintrc.json#L1
+6. https://github.com/akhanalcs/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/.eslintrc.json#L1
    This is the configuration file for ESlint. It is used to specify the parser options and rules for ESlint.
    As you can see there are no rules (formatting) in the file. Because config for that is already stored in `.prettierrc`.
-7. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/jest.config.ts#L1
+7. https://github.com/akhanalcs/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/jest.config.ts#L1
    This file is used to specify the configuration for Jest, a JavaScript testing framework.
    You can specify options that define how Jest runs your tests, which files it should test, any setup tasks that need to be completed before tests run, and more. By convention, it is written in TypeScript (ts).
-8. https://github.com/affableashish/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/jest.preset.js#L1
+8. https://github.com/akhanalcs/angular-dotnet-realworld/blob/7e92ad7a28b37f09767aafe20a595437077e6e8b/jest.preset.js#L1
    
    
 package.json note about being only one package.json for multiple projects: https://stackoverflow.com/a/52761971/8644294
@@ -267,7 +267,7 @@ Note:
 | It ensures code quality | |
 
 This package is going to turn off all of eslint's configuration for things that prettier already handles.
-https://github.com/affableashish/angular-dotnet-realworld/blob/5346b0b332377c7aebc28e52c7bcc8a939cf0926/package.json#L47
+https://github.com/akhanalcs/angular-dotnet-realworld/blob/5346b0b332377c7aebc28e52c7bcc8a939cf0926/package.json#L47
 
 You can run that package like so if you'd like
 ```bash
@@ -277,7 +277,7 @@ npx eslint-config-prettier somefile.js
 ### Taking a look inside node_modules folder
 Let's check out this package and learn
 
-<img width="550" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/7d79ab1e-5203-4af3-a5ab-645b727da7e4">
+<img width="550" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/7d79ab1e-5203-4af3-a5ab-645b727da7e4">
 
 #### index.js file (JS entry file)
 In `Node.js`, each file has its own module object (global object), and `module.exports` is a property of that object.
@@ -403,31 +403,31 @@ nx serve angular-frontend
 
 Or you can just use Nx Console to run it
 
-<img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/71bfef49-ad36-4adf-9f73-12f2e79dd146">
+<img width="400" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/71bfef49-ad36-4adf-9f73-12f2e79dd146">
 
 The app starts running at `http://localhost:4200/`
 
-<img width="650" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/d9af2dfd-fcb4-4545-b349-9d78182170e3">
+<img width="650" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/d9af2dfd-fcb4-4545-b349-9d78182170e3">
 
 Get ready for next steps
 
-<img width="400" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/0b4c52b4-bf55-4a7e-a890-381451b58dbb">
+<img width="400" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/0b4c52b4-bf55-4a7e-a890-381451b58dbb">
 
 ## Push nx-workspace to your GitHub repo
 Clone this empty Git repo down to your local.  
 Make sure to change the name so as not to match with what you already have, i.e. `angular-dotnet-realworld`.
 
-<img width="550" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/de9c4725-e347-43e4-8a05-c5f0fc57f8fb">
+<img width="550" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/de9c4725-e347-43e4-8a05-c5f0fc57f8fb">
 
 Now copy hidden `.git` folder from this cloned folder to your nx-workspace folder.
 
-<img width="300" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/f720faff-c924-47fa-ad8a-754ab2079f3b">
+<img width="300" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/f720faff-c924-47fa-ad8a-754ab2079f3b">
 
 Since I already have my `README` file from GitHub repo creation, rename the `README` from nx-workspace to `NxREADME`.
 
 Go to commit window, add the files and commit + push to GitHub.
 
-<img width="350" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/202928e0-882a-4aea-8cf2-2e18ef6639ae">
+<img width="350" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/202928e0-882a-4aea-8cf2-2e18ef6639ae">
 
 ## Code generation capabilities
 Run this command to see what you get
@@ -438,7 +438,7 @@ You'll see a list of Generators and Executors/ Builders
 
 For eg:
 
-<img width="500" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/4c7cc922-b1c8-489d-a379-c802248bb108">
+<img width="500" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/4c7cc922-b1c8-489d-a379-c802248bb108">
 
 Now to create a component, you can run something like
 ```bash
@@ -632,7 +632,7 @@ It has a call stack, an event loop, a callback queue and some other apis.
 
 JS runtime like V8 has call stack and a heap, but not the other stuffs.
 
-<img width="500" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/95c1dc0d-7993-4edb-a774-0bacc0b0108d">
+<img width="500" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/95c1dc0d-7993-4edb-a774-0bacc0b0108d">
 
 Since JS is single threaded, it has single stack. So it can only do one thing at a time.
 
@@ -640,7 +640,7 @@ For eg:
 
 Here the main() is the anonymous function you see in browser console which calls `printSquare(4)` which then calls `square(n)` and finally `multiply(n, n)`. When `return a * b` is executed, the stack gets removed in reverse order.
 
-<img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/c0f71944-314c-4c5d-8403-13af8d64f023">
+<img width="600" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/c0f71944-314c-4c5d-8403-13af8d64f023">
 
 If the call stack has things on it, the browser can't do anything else. It gets stuck.
 
@@ -655,13 +655,13 @@ Call Stack:
    log('Hi')
    main()
    ```
-   <img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/e7f00fac-aeef-4239-9f75-27dbf3a041fa">
+   <img width="600" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/e7f00fac-aeef-4239-9f75-27dbf3a041fa">
 2. At second line
    ```
    $.get('url', cb)
    main()
    ```
-   <img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/f9aa89ac-e748-4361-bedf-c86bd27d54f1">
+   <img width="600" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/f9aa89ac-e748-4361-bedf-c86bd27d54f1">
    
    The code for running this AJAX request (`XHR`) doesn't live in the JS runtime, it lives in the browser as a web api so we spin it up with a callback. And the code continues to run by going to next line.
 3. At third line
@@ -672,15 +672,15 @@ Call Stack:
    After third line completes, the call stack is empty.
 4. When the `$.get` AJAX request completes, callback gets pushed to the queue
 
-   <img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/f3b8349f-013b-4b06-ba56-f08e5f2b9877">
+   <img width="600" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/f3b8349f-013b-4b06-ba56-f08e5f2b9877">
 
 5. Event loop picks the callback up and pushes it to the stack and it's run.
 
-   <img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/b3daef5e-2721-4ff5-9375-ac4f83ae687c">
+   <img width="600" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/b3daef5e-2721-4ff5-9375-ac4f83ae687c">
 
 6. The end
 
-   <img width="600" alt="image" src="https://github.com/affableashish/angular-dotnet-realworld/assets/30603497/621b2402-5558-4172-9618-81db65d20fd4">
+   <img width="600" alt="image" src="https://github.com/akhanalcs/angular-dotnet-realworld/assets/30603497/621b2402-5558-4172-9618-81db65d20fd4">
 
 # 
 [Reference]()

@@ -1,6 +1,10 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
+  // This is found in "node_modules/@nrwl/eslint-plugin-nx" folder
+  // The Nx team published the ESLint plugin with the name @nrwl/eslint-plugin-nx.
+  // Scope in @nrwl/eslint-plugin-nx is @nrwl, so it gets placed under @nrwl folder when it's installed
+  // This package contains the ESLint rules that Nx uses to enforce best practices and conventions within Nx workspaces.
   "plugins": ["@nx"],
   "overrides": [
     {
