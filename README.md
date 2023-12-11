@@ -201,9 +201,9 @@ In this example, I created this repo to host my projects. Note that I'll use the
 
 ## Create frontend project that uses Angular
 Reference: [Watch this YT video from Nx first](https://youtu.be/ZAO0yXupIIE?si=1CYbAQNIW6MjZOQD)  
+Reference: [Or this Nx tutorial if you don't like videos](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial)  
 Reference: [Getting Started with Nx](https://nx.dev/getting-started/installation)  
 Reference: [Create Nx Workspace](https://nx.dev/nx-api/nx/documents/create-nx-workspace)  
-Reference: [Angular Monorepo Tutorial](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial)  
 
 Open Terminal in your rider and create nx workspace
 
